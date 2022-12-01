@@ -126,12 +126,7 @@ class MLP(object):
                 # activate the network!
                 output = self.forward_propagate(input)
 
-                error = target - output
-                
-                # if output[j] == target[j]:
-                #     self.correct_prediction +=1
-
-                # accuracy = (len(self.correct_prediction)/len(targets))*100
+                error = target - output       
 
                 self.back_propagate(error)
 
@@ -203,14 +198,13 @@ if __name__ == "__main__":
     items = df_train[['x_1','x_2']].to_numpy()
     targets = df_train[['y']].to_numpy()
    
-
     # create a Multilayer Perceptron with hidden layer
     mlp = MLP(2, [10], 1)
 
     # train network
     mlp.train(items, targets, 50, 0.001)
 
-    # data
+    # data loading
     data_test = "../classification_dataset/classification_test.csv"
     df_test = pd.read_csv(data_test)
     test_items = df_test[['x_1','x_2']].to_numpy()
