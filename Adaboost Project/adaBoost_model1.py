@@ -67,7 +67,6 @@ def predict(self, X):
     return np.sign(np.dot(self.stump_weights, stump_preds))
 
 
-
 data_train = "../classification_dataset/classification_train.csv"
 data_train = pd.read_csv(data_train)
 X = np.array(data_train.iloc[:,0:2])
@@ -77,10 +76,18 @@ y = np.array(data_train.iloc[:,-1])
 AdaBoost.fit = fit
 AdaBoost.predict = predict
 
-clf = AdaBoost().fit(X, y, iters=10)
+clf = AdaBoost().fit(X, y, iters=20)
 # plot_adaboost(X, y, clf)
 
 train_err = (clf.predict(X) != y).mean()
 print(f'Train error: {train_err:.1%}')
 
+# testing on test set and saving test prediction
+data_train = "../classification_dataset/classification_test.csv"
+data = pd.read_csv(data_train)
+X = np.array(data[['x_1','x_2']])
 
+Y = clf.predict(X)
+predicted_Y = pd.DataFrame(Y)
+print('=============Saving prediction===================================="')
+predicted_Y.to_csv('predicted_adaBoost1.csv', index = False, header = False)
