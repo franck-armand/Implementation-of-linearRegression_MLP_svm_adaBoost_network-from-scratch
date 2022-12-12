@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from random import random
 
-
 class MLP(object):
     """A Multilayer Perceptron class.
     """
@@ -222,7 +221,7 @@ if __name__ == "__main__":
             convert_output.append('0')
 
     output_df = pd.DataFrame(output)
-    # output_df.to_csv('output_df', index=False, header = False)
+    output_df.to_csv('output_df', index=False, header = False)
 
     convert_output_df = pd.DataFrame(convert_output)
-    # convert_output_df.to_csv('convert_output_df',index=False, header = False)
+    convert_output_df.to_csv('convert_output_df',index=False, header = False)
