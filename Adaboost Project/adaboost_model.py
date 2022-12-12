@@ -71,20 +71,17 @@ def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
     return accuracy
   
-
-
-
+# loading train data
 data_train = "../classification_dataset/classification_train.csv"
 data_train = pd.read_csv(data_train)
 X = data_train.iloc[:,0:2].values
 y = data_train.iloc[:,-1].values
 
-y[y==0]=-1
+# y[y==0]=-1
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=58)
 
 adaBoost_classifier = myAdaBoost()
 adaBoost_classifier.fit(X_train, y_train)
-
 y_pred = adaBoost_classifier.predict(X_test)
 acc = accuracy(y_test, y_pred)
 
@@ -92,9 +89,9 @@ print(f"The Accuracy of the AdaBoost classifier is {acc}")
 print('============')
 
 # Testing classifier on test set
-data_train = "../classification_dataset/classification_train.csv"
+data_train = "../classification_dataset/classification_test.csv"
 data = pd.read_csv(data_train)
-X = data[['x_1','x_2']]
+X = np.array(data[['x_1','x_2']])
 Y = adaBoost_classifier.predict(X)
 predicted_Y = pd.DataFrame(Y)
 print('Saved prediction to "predicted_adaBoost.csv"')
