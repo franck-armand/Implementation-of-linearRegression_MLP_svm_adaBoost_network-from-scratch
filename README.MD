@@ -1,4 +1,4 @@
-# **Model implementation from scratch** 
+# **Model implementation from scratch: linear Regression, MLP, and adaBoost.** 
 In this repository, we implemented the following models from scratch (*without using third party libraries*)
 
 - [x] **Regression model**
@@ -6,7 +6,7 @@ In this repository, we implemented the following models from scratch (*without u
 - [x] **Adaboost model**
 - [x] **SVM (Support Vector Machine),**
 
-*The implementation of the SVM model,was done using third party libray, but the parameters such as penalty factor C and kernel were manually set.)*
+*The implementation of the SVM model, was done using third party libray, but the parameters such as penalty factor C and kernel were manually set.)*
 
 ---
 ## **Requirements**
